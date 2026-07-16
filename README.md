@@ -1,59 +1,37 @@
 # 🇳🇮 NICWA: Nicaraguan Financial Assistant (Telegram Bot)
 
-NICWA is an interactive Telegram bot designed to facilitate access to currency exchange rates (USD/NIO) in Nicaragua. It allows users to check up-to-date rates from the country's main banks and calculate exact conversions applying real buying and selling logic.
+**NICWA** es un asistente financiero automatizado en formato de bot para Telegram. Su objetivo principal es resolver un problema cotidiano en Nicaragua: centralizar, comparar y calcular el tipo de cambio del dólar (USD/NIO) de manera rápida, sencilla y sin salir de tu aplicación de mensajería.
 
 ---
 
-## ✨ Key Features
+## 💡 ¿Por qué existe este proyecto? (El Problema Real)
 
-* **🏦 Local Banks:** Support for exchange rates from BAC, Banpro, Lafise, Ficohsa, BDF, and the official rate of the Central Bank of Nicaragua (BCN).
-* **🔄 Bidirectional Conversion:** Calculates conversions from Dollars to Córdobas (USD to NIO) and from Córdobas to Dollars (NIO to USD).
-* **🧮 Real Financial Logic:** The algorithm automatically applies the Buy rate when the user hands over dollars, and the Sell rate when they need to buy dollars.
-* **📱 Advanced UX Interface:** Fully guided navigation using `InlineKeyboardMarkup` (buttons integrated directly into the messages), eliminating the need to memorize commands.
-* **🔁 Continuous Flow:** User state management allows for multiple consecutive queries without having to restart the bot.
+En Nicaragua, el tipo de cambio del dólar frente al córdoba cambia constantemente y varía significativamente entre los principales bancos del país. Para una persona común o un comercio, comparar tasas de cambio implica ingresar manualmente a los sitios web de múltiples bancos (BAC, Banpro, Lafise, etc.), buscar la sección de divisas y realizar cálculos matemáticos manuales en la calculadora del teléfono.
 
----
-
-## 🚀 Live Demo
-
-*(Here you can add a link to your bot if it is hosted on a server, for example: Try it here on Telegram)*
+**NICWA automatiza este proceso:**
+1. **Centraliza la información:** Muestra en una sola pantalla las tasas de los bancos más importantes de Nicaragua.
+2. **Elimina el error humano:** El usuario no tiene que decidir si debe multiplicar o dividir por el tipo de cambio; el bot hace la conversión exacta de forma automática utilizando lógica financiera real.
 
 ---
 
-## 🛠️ Technologies Used
+## 🧮 Lógica Financiera del Algoritmo
 
-* **Language:** Python 3
-* **Main Library:** `pyTelegramBotAPI` (Telebot)
+Este bot no es una simple calculadora que multiplica números al azar; el sistema implementa **reglas de negocio financieras reales** basándose en la intención de la transacción del usuario:
+
+* **De Dólares a Córdobas (USD ➡️ NIO):** El algoritmo detecta que el usuario "tiene dólares" y, por lo tanto, el banco se los va a comprar. Aplica automáticamente la **tasa de Compra (Buy rate)** de la entidad seleccionada.
+* **De Córdobas a Dólares (NIO ➡️ USD):** El algoritmo detecta que el usuario "necesita dólares" y, por lo tanto, el banco se los va a vender. Aplica automáticamente la **tasa de Venta (Sell rate)** de la entidad seleccionada.
 
 ---
 
-## ⚙️ Local Installation & Setup
+## ✨ Características Principales
 
-If you want to run this project on your local machine, follow these steps:
+* **🏦 Cobertura de Bancos Locales:** Soporte diseñado para procesar tasas de BAC, Banpro, Lafise, Ficohsa, BDF y la tasa oficial del Banco Central de Nicaragua (BCN).
+* **📱 Interfaz de Usuario Avanzada (UX):** Navegación 100% interactiva mediante botones dinámicos en los mensajes (`InlineKeyboardMarkup`). El usuario realiza consultas completas con toques de pantalla, sin necesidad de memorizar o escribir comandos complejos de texto.
+* **🔁 Flujo de Usuario Continuo:** Gestión del estado de la conversación para que el usuario pueda encadenar múltiples cálculos consecutivos sin tener que reiniciar el bot desde cero.
 
-### 1. Clone the repository
-bash
-git clone [https://github.com/your-username/nicwa-bot.git](https://github.com/your-username/nicwa-bot.git)
-cd nicwa-bot
-### 2. Install the required dependencies
-Bash
-pip install pyTelegramBotAPI
-### 3. Configure your Telegram Token
-Open Telegram and search for @BotFather.
+---
 
-Create a new bot using /newbot and copy the provided Token.
+## 🛠️ Tecnologías Utilizadas
 
-Open the bot_financiero.py file (or whatever you named your script) and replace the TOKEN variable:
-
-Python
-TOKEN = 'YOUR_TOKEN_GENERATED_BY_BOTFATHER'
-### 4. Run the bot
-Bash
-python bot_financiero.py
-📝 Note on Data (API)
-Currently, the exchange rates in the source code use a simulation system (mock data) in the obtener_tasas_bancos() function for demonstration purposes. For a production environment, this function can be connected to a Web Scraping script (e.g., BeautifulSoup) or a private API to extract real-time data from Nicaraguan banks.
-
-🔒 Security
-Never upload your real Telegram Token to public repositories. Make sure to use environment variables (.env) or hide your Token before committing and pushing your code.
-
-Developed with ☕ by ##pilodevr
+* **Lenguaje:** Python 3
+* **Biblioteca Principal:** `pyTelegramBotAPI` (Telebot)
