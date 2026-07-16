@@ -32,13 +32,13 @@ NICWA is an interactive Telegram bot designed to facilitate access to currency e
 If you want to run this project on your local machine, follow these steps:
 
 ### 1. Clone the repository
-```bash
+bash
 git clone [https://github.com/your-username/nicwa-bot.git](https://github.com/your-username/nicwa-bot.git)
 cd nicwa-bot
-2. Install the required dependencies
+### 2. Install the required dependencies
 Bash
 pip install pyTelegramBotAPI
-3. Configure your Telegram Token
+### 3. Configure your Telegram Token
 Open Telegram and search for @BotFather.
 
 Create a new bot using /newbot and copy the provided Token.
@@ -47,7 +47,7 @@ Open the bot_financiero.py file (or whatever you named your script) and replace 
 
 Python
 TOKEN = 'YOUR_TOKEN_GENERATED_BY_BOTFATHER'
-4. Run the bot
+### 4. Run the bot
 Bash
 python bot_financiero.py
 📝 Note on Data (API)
@@ -56,4 +56,4 @@ Currently, the exchange rates in the source code use a simulation system (mock d
 🔒 Security
 Never upload your real Telegram Token to public repositories. Make sure to use environment variables (.env) or hide your Token before committing and pushing your code.
 
-Developed with ☕ by
+Developed with ☕ by ##pilodevr
